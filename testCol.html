@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Caro Game</title>
+</head>
+<body>
+</body>
+</html>
+<script>
+    let list1 = [0,0,1,1,0,0];
+    let list2 = [1,1,0,0,1,1];
+    let list3 = [0,0,1,1,1,0];
+    let board = [list1, list2,list3];
+    let targetCount = board[0].length;
+    let res = false;
+    for (let j = 0; j < board.length; j++) {
+        let count = 1;
+        let fixed = board[j][0];
+        for (let i = 1; i < board[j].length; i++) {
+            if (board[j][i] == board[j][i - 1]) {
+                count += 1;
+            } else {
+                fixed = board[j][i];
+                count = 1;
+            }
+            if (count >= targetCount) {
+                res = true;
+                break;
+            }
+        console.log(count);
+        if (res){
+            break;
+        }
+        }
+    }
+    if (res){ alert('Chuỗi 3')} else {alert('không chuỗi 3')};
+</script>

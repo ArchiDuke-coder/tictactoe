@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Caro Game</title>
+</head>
+<body>
+</body>
+</html>
+<script>
+    let list1 = [0,0,1,0];
+    let list2 = [0,7,2,2];
+    let list3 = [1,0,0,1];
+    let list4 = [0,2,1,0];
+    let board = [list1, list2,list3,list4];
+    let res = false;
+
+    if (board.length == board[0].length){
+        let fixed1 = board[0,0];
+        let fixed2 = board[0][board.length-1];
+        let count1 = 1;
+        let count2 = 1;
+        let targetCount = board.length;
+        for (let i = 1; i <board.length; i++) {
+            if (board[i][i] == board[i-1][i-1]){
+                count1 += 1;
+            } else {
+                fixed1 = board[i][i];
+                count1 = 1;
+            }
+            if (count1 >= targetCount) {
+                res = true;
+                break;
+            }
+        }
+        for (let i = 1; i<board.length; i++){
+            if (board[i][(board.length-1)-i] == board[i-1][board.length-i]){
+                count2 += 1;
+            } else {
+                fixed2 = board[i][(board.length-1)-i];
+                count2 = 1;
+            }
+            if (count2 >= targetCount){
+                res = true;
+                break;
+            }
+        }
+        console.log(count1, '____', count2);
+        if (res){ alert('Chuỗi 3')} else {alert('không chuỗi 3')};
+    } else {
+        alert('Width and height are not equal');
+    }
+
+    /*if (count >= targetCount) {
+        res = true;
+    }
+    console.log(count);
+    if (res){ alert('Chuỗi 3')} else {alert('không chuỗi 3')};*/
+</script>
